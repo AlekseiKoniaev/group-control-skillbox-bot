@@ -1,0 +1,24 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/tg-bot
+        username: tg-admin
+        password: 9en2w0oc
+        hikari:
+            maximum-pool-size: 2
+    jpa:
+        hibernate:
+            ddl-auto: update
+
+logging:
+    level:
+        root: info
+
+telegram:
+    bot-user-name: ${BOT_USER_NAME}
+    bot-token: ${BOT_TOKEN}
+
+    admin-groups:
+        - id: -644481529
+
+    user-groups:
+        - id: -606991893
