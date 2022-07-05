@@ -3,7 +3,7 @@ package ru.axelration.groupcontrolskillboxbot.model;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import ru.axelration.groupcontrolskillboxbot.model.enums.UserRole;
+import ru.axelration.groupcontrolskillboxbot.model.enums.Role;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +29,7 @@ public class Joining {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Member member;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "group_id", nullable = false)
@@ -37,7 +37,7 @@ public class Joining {
 
     @Enumerated
     @Column(nullable = false)
-    private UserRole role;
+    private Role role;
 
     @Column(nullable = false)
     private LocalDateTime entryTime;
@@ -53,13 +53,13 @@ public class Joining {
 
         Joining joining = (Joining) o;
 
-        if (!user.equals(joining.user)) return false;
+        if (!member.equals(joining.member)) return false;
         return group.equals(joining.group);
     }
 
     @Override
     public int hashCode() {
-        int result = user.hashCode();
+        int result = member.hashCode();
         result = 31 * result + group.hashCode();
         return result;
     }

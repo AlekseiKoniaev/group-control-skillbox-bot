@@ -16,7 +16,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class User {
+public class Member {
 
     @Setter(AccessLevel.NONE)
     @Id
@@ -35,10 +35,10 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User user = (User) o;
+        Member member = (Member) o;
 
-        if (!name.equals(user.name)) return false;
-        return Objects.equals(nick, user.nick);
+        if (!name.equals(member.name)) return false;
+        return Objects.equals(nick, member.nick);
     }
 
     @Override

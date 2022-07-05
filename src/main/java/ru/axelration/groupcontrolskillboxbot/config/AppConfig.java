@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "telegram")
 public class AppConfig {
     
-    private String apiUrl;
+    private int longPollingTimeout;
     private String botUserName;
     private String botToken;
     

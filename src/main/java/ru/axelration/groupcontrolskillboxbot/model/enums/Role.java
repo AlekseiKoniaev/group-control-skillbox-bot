@@ -1,7 +1,6 @@
 package ru.axelration.groupcontrolskillboxbot.model.enums;
 
-public enum UserRole {
+public enum Role {
     ADMIN,
-    BOT,
     USER
 }

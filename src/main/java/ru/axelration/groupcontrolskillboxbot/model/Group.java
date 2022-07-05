@@ -4,14 +4,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import ru.axelration.groupcontrolskillboxbot.model.enums.GroupRole;
+import ru.axelration.groupcontrolskillboxbot.model.enums.Role;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,14 +25,14 @@ public class Group {
     @Setter(AccessLevel.NONE)
     @Id
     @Column(nullable = false)
-    private Long id;
+    private final Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private GroupRole role;
+    private Role role;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "group_id")
@@ -48,13 +46,13 @@ public class Group {
 
         Group group = (Group) o;
 
-        if (!name.equals(group.name)) return false;
+        if (!title.equals(group.title)) return false;
         return role == group.role;
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
+        int result = title.hashCode();
         result = 31 * result + role.hashCode();
         return result;
     }
