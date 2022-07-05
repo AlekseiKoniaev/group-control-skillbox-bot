@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import ru.axelration.groupcontrolskillboxbot.model.Group;
+import ru.axelration.groupcontrolskillboxbot.model.enums.Role;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -16,9 +19,6 @@ public class GroupConfig {
     private List<ModeratorGroup> groups;
     
     
-    public class Parser {
-    
-    }
     
     public record ModeratorGroup(long id, List<UserGroup> userGroups) {
     }

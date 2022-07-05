@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 public class AppConfig {
     
     private int longPollingTimeout;
+    private int multiplicity;
+    private int incrementalSaves;
     private String botUserName;
     private String botToken;
     
